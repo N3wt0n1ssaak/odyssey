@@ -1,4 +1,4 @@
-FROM ubuntu:noble
+FROM ubuntu:24.10
 
 RUN apt-get update
 RUN apt-get install -y clang-format-18 python3 python-is-python3 git

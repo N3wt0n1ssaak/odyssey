@@ -1,4 +1,4 @@
-FROM ubuntu:noble AS odyssey-build-env
+FROM ubuntu:24.04 AS odyssey-build-env
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Moskow
@@ -43,7 +43,7 @@ RUN go mod download && cd pkg && CGO_ENABLED=0 go build -o pstmts-test
 WORKDIR /config-validation
 RUN go mod download && cd pkg && go build -o config-validation
 
-FROM ubuntu:noble AS test-runner
+FROM ubuntu:24.04 AS test-runner
 
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl
 RUN install -m 0755 -d /etc/apt/keyrings
